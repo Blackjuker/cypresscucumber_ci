@@ -10,8 +10,6 @@ pipeline {
 //         choice(name: 'CHOICE_TAG', choices: ['@TC-002', '@TC-003', '@TC-003'], description: 'Sélectionne un tag de test')
 //     }
 
-
-
     stages {
         stage('Vérifier la version de Cypress') {
             steps {
