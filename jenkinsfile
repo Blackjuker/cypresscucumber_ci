@@ -1,0 +1,35 @@
+pipeline {
+    agent {
+        docker {
+            image "cypress/browsers"
+            args '--entrypoint=""'  
+        }
+    }
+// parameters {
+//         string(name: 'String_TAG', defaultValue: '', description: 'Tag de test')
+//         choice(name: 'CHOICE_TAG', choices: ['@TC-002', '@TC-003', '@TC-003'], description: 'Sélectionne un tag de test')
+//     }
+
+    stages {
+        stage('Vérifier la version de Cypress') {
+            steps {
+                sh "npm --version"
+                sh "npm ci"
+            }
+        }
+          stage('exécuter') {
+            steps {
+                sh 'npx cypress run'
+                // sh 'npx cypress run --reporter junit'
+            }
+        }
+    }
+// post{
+//         always {
+//             // archiveArtifacts artifacts: 'cypress/reports/**/*.*', followSymlinks: false
+//             junit 'results/**/*.xml'
+//             // junit '**/test-output-*.xml'  // Spécifie où trouver les rapports JUnit
+
+
+//         }
+}
