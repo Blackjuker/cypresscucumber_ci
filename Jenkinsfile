@@ -33,7 +33,7 @@ pipeline {
                         [key: 'Submitter', value: '${GERRIT_PATCHSET_UPLOADER_NAME}']
                 ],
                 reportTitle: 'My report',
-                fileIncludePattern: 'cypress\\cucumber-json',
+                fileIncludePattern: '**/*.cucumber.json',
                 sortingMethod: 'ALPHABETICAL',
                 trendsLimit: 100
          }
